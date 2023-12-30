@@ -6,7 +6,7 @@ const app=express()
 app.use(express.json())
 
 const workoutRoutes=require('./Routes/workouts')
-const { default: App } = require('../frontend/src/App')
+// const { default: App } = require('../frontend/src/App')
 app.use((req,res,next)=>{
     console.log(req.path,res.method)
     next()
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONG_URI)
 })
 .catch((error)=>console.log(error ))
 
-App.use('/api/workouts',workoutRoutes)  
+app.use('/api/workouts',workoutRoutes)  
 
 
 
